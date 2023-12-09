@@ -2,14 +2,14 @@ import card.deck.CardDeck
 import player.Player
 import player.PlayerGroup
 import player.Status
-import view.InputViewInterface
-import view.OutputViewInterface
+import view.InputView
+import view.OutputView
 
 class BlackjackGame(
     private val cardDeck: CardDeck,
     val playerGroup: PlayerGroup,
-    private val inputView: InputViewInterface,
-    private val outputView: OutputViewInterface,
+    private val inputView: InputView,
+    private val outputView: OutputView,
 ) {
 
     init {

@@ -2,20 +2,20 @@ import card.CardPack
 import card.deck.CardDeck
 import player.PlayerFactory
 import player.PlayerGroup
-import view.InputView
-import view.OutputView
+import view.PlayInputView
+import view.CardOutputView
 
 fun main() {
 
-    val playerNames = InputView.inputPlayerName()
+    val playerNames = PlayInputView.inputPlayerName()
     val playerGroup = PlayerGroup(PlayerFactory.createPlayerList(playerNames))
     val cardDeck = CardDeck(CardPack.cards)
 
-    val game = BlackjackGame(cardDeck = cardDeck, playerGroup = playerGroup, InputView, OutputView)
+    val game = BlackjackGame(cardDeck = cardDeck, playerGroup = playerGroup, PlayInputView, CardOutputView)
 
-    OutputView.showGameStart(game.playerGroup)
+    CardOutputView.showGameStart(game.playerGroup)
 
     game.start()
 
-    OutputView.showGameEnd(game.playerGroup)
+    CardOutputView.showGameEnd(game.playerGroup)
 }

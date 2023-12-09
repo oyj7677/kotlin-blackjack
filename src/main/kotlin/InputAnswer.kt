@@ -1,3 +1,3 @@
 enum class InputAnswer {
-    YES,NO,NONE
+    YES, NO, NONE
 }
