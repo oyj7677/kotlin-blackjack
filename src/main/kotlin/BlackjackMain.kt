@@ -9,7 +9,7 @@ fun main() {
 
     val playerNames = InputView.inputPlayerName()
     val playerGroup = PlayerGroup(PlayerFactory.createPlayerList(playerNames))
-    val cardDeck = CardDeck(CardPack.cards.toMutableList())
+    val cardDeck = CardDeck(CardPack.cards)
 
     val game = BlackjackGame(cardDeck = cardDeck, playerGroup = playerGroup, InputView, OutputView)
 

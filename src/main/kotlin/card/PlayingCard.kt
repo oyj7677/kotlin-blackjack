@@ -14,22 +14,26 @@ data class PlayingCard(val suit: Suit, val cardRank: CardRank) {
     }
 
     companion object {
-        private val CARDS: MutableMap<String, PlayingCard> = mutableMapOf()
+        private val CARD_DECK: MutableMap<String, PlayingCard> = mutableMapOf()
+
+        init {
+            for (suit in Suit.values()) {
+                for (cardRank in CardRank.values()) {
+                    PlayingCard(suit, cardRank).inputCardDeck()
+                }
+            }
+        }
 
         fun of(suit: Suit, cardRank: CardRank): PlayingCard {
-            return CARDS[toKey(suit, cardRank)] ?: throw NoSuchElementException()
+            return CARD_DECK[toKey(suit, cardRank)] ?: throw NoSuchElementException()
         }
 
         private fun toKey(suit: Suit, cardRank: CardRank): String {
             return suit.name + cardRank.name
         }
 
-        init {
-            for (suit in Suit.values()) {
-                for (cardRank in CardRank.values()) {
-                    CARDS[toKey(suit, cardRank)] = PlayingCard(suit, cardRank)
-                }
-            }
+        private fun PlayingCard.inputCardDeck() {
+            CARD_DECK[toKey(suit, cardRank)] = this
         }
     }
 }
