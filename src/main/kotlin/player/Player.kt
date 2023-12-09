@@ -12,20 +12,20 @@ class Player(
     var status = status
         private set
 
-    var playerDeck = hands
+    var hands = hands
         private set
 
     fun playDone() {
         this.status = Status.STAND
     }
 
-    fun saveCard(card: PlayingCard) {
-        playerDeck.addCard(card)
+    fun hit(card: PlayingCard) {
+        hands.addCard(card)
         updateStatus()
     }
 
     fun updateStatus() {
-        val totalPoint = playerDeck.getResultPoint()
+        val totalPoint = hands.getResultPoint()
 
         if (totalPoint > BLACKJACK_NUMBER) {
             this.status = Status.BUST
@@ -37,12 +37,12 @@ class Player(
     }
 
     fun getResultPoint(): Int {
-        return playerDeck.getResultPoint()
+        return hands.getResultPoint()
     }
 
     private fun isBlackJack(): Boolean {
-        val totalPoint = playerDeck.getResultPoint()
-        return playerDeck.cardDeckSize() == BLACKJACK_CARD_COUNT && totalPoint == BLACKJACK_NUMBER
+        val totalPoint = hands.getResultPoint()
+        return hands.cardDeckSize() == BLACKJACK_CARD_COUNT && totalPoint == BLACKJACK_NUMBER
     }
 
     companion object {

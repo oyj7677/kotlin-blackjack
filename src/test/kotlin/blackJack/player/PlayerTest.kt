@@ -18,8 +18,8 @@ class PlayerTest {
         val card = CardPack.cards[0]
 
         // when : 플레이어가 카드를 받는다.
-        player.saveCard(card)
-        val actual = player.playerDeck.cardList[0]
+        player.hit(card)
+        val actual = player.hands.cardList[0]
 
         // then :
         assertThat(actual).isEqualTo(card)
@@ -56,8 +56,8 @@ class PlayerTest {
     fun `플레이어가 카드를 받고, 플레이어 보유 카드 합이 20이하 일 때, 플에이어 상테는 PLAYING로 업데이트 된다`() {
         // given : 플레이어 보유 카드 합 20 이하(8)
         val player = Player("OYJ")
-        player.saveCard(PlayingCard(Suit.DIAMOND, CardRank.TREE))
-        player.saveCard(PlayingCard(Suit.DIAMOND, CardRank.FIVE))
+        player.hit(PlayingCard(Suit.DIAMOND, CardRank.TREE))
+        player.hit(PlayingCard(Suit.DIAMOND, CardRank.FIVE))
 
         // when : 플레이어 상태 업데이트
         player.updateStatus()
@@ -71,9 +71,9 @@ class PlayerTest {
     fun `플레이어가 카드를 받고, 플레이어 보유 카드 합이 21이상 일 때, 플에이어 상테는 BUST로 업데이트 된다`() {
         // given : 플레이어 보유 카드 합 21 이상(28)
         val player = Player("OYJ")
-        player.saveCard(PlayingCard(Suit.DIAMOND, CardRank.EIGHT))
-        player.saveCard(PlayingCard(Suit.DIAMOND, CardRank.KING))
-        player.saveCard(PlayingCard(Suit.DIAMOND, CardRank.JACK))
+        player.hit(PlayingCard(Suit.DIAMOND, CardRank.EIGHT))
+        player.hit(PlayingCard(Suit.DIAMOND, CardRank.KING))
+        player.hit(PlayingCard(Suit.DIAMOND, CardRank.JACK))
 
         // when : 플레이어 상태 업데이트
         player.updateStatus()
@@ -87,8 +87,8 @@ class PlayerTest {
     fun `플레이어가 초기 2장의 카드를 받고, 플레이어 보유 가드 합이 21 일 때, 플에이어 상테는 BLACK_JACK으로 업데이트 된다`() {
         // given : 플레이어 보유 카드 2장 && 합 21
         val player = Player("OYJ")
-        player.saveCard(PlayingCard(Suit.DIAMOND, CardRank.ACE))
-        player.saveCard(PlayingCard(Suit.DIAMOND, CardRank.KING))
+        player.hit(PlayingCard(Suit.DIAMOND, CardRank.ACE))
+        player.hit(PlayingCard(Suit.DIAMOND, CardRank.KING))
 
         // when : 플레이어 상태 업데이트
         player.updateStatus()
