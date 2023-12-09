@@ -5,6 +5,8 @@ import player.PlayerGroup
 
 object OutputView : OutputViewInterface {
 
+    private const val TEXT_RETRY_INPUT = "Y 혹은 N만 입력 가능합니다."
+
     fun showGameStart(playerGroup: PlayerGroup) {
         val sb = StringBuilder()
         playerGroup.playerList.forEach {
@@ -19,6 +21,10 @@ object OutputView : OutputViewInterface {
 
     override fun showPlayingCard(player: Player) {
         println("${player.name}카드: ${player.playerDeck}")
+    }
+
+    override fun showInputError() {
+        println(TEXT_RETRY_INPUT)
     }
 
     fun showGameEnd(playerGroup: PlayerGroup) {
