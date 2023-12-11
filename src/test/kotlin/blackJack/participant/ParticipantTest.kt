@@ -6,10 +6,10 @@ import card.PlayingCard
 import card.Suit
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import player.Status
 import player.Participant
+import player.Status
 
-class ParticipantTest{
+class ParticipantTest {
     @Test
     fun `참여자의 카드팩이 생성되고, 참여자가 카드를 받을 때, 받은 카드는 저장한다`() {
         // given : 참여자와 카드팩을 생성한다.
@@ -110,12 +110,5 @@ class ParticipantTest{
         assertThat(actual).isEqualTo(Status.STAND)
     }
 
-    @Test
-    fun `게임이 시작되고 ,다른 참여자의 카드를 받아 비교할 때, 승패가 반환된다`() {
-        // given : 게임이 시작된다.
 
-        // when :
-
-        // then :
-    }
 }
