@@ -1,19 +1,17 @@
 package player
 
-
 import card.PlayingCard
 import card.deck.Hands
 
-class Player(
-    val name: String,
+open class Participant(
     status: Status = Status.START,
-    hands: Hands = Hands()
+    hands: Hands = Hands(),
 ) {
 
     var status = status
         private set
 
-    var playerDeck = hands
+    var hands = hands
         private set
 
     fun playDone() {
@@ -21,12 +19,12 @@ class Player(
     }
 
     fun hit(card: PlayingCard) {
-        playerDeck.addCard(card)
+        hands.addCard(card)
         updateStatus()
     }
 
     fun updateStatus() {
-        val totalPoint = playerDeck.getResultPoint()
+        val totalPoint = hands.getResultPoint()
 
         if (totalPoint > BLACKJACK_NUMBER) {
             this.status = Status.BUST
@@ -38,12 +36,12 @@ class Player(
     }
 
     fun getResultPoint(): Int {
-        return playerDeck.getResultPoint()
+        return hands.getResultPoint()
     }
 
     private fun isBlackJack(): Boolean {
-        val totalPoint = playerDeck.getResultPoint()
-        return playerDeck.cardDeckSize() == BLACKJACK_CARD_COUNT && totalPoint == BLACKJACK_NUMBER
+        val totalPoint = hands.getResultPoint()
+        return hands.cardDeckSize() == BLACKJACK_CARD_COUNT && totalPoint == BLACKJACK_NUMBER
     }
 
     companion object {

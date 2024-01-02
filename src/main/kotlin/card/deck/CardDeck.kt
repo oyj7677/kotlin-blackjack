@@ -9,7 +9,6 @@ class CardDeck(private val cardList: MutableList<PlayingCard>) {
     }
 
     private var index = 0
-
     fun getCardWithIncrease(): PlayingCard {
         if (isMaxIndexOfCard()) resetCard()
         return cardList[index++]
@@ -20,6 +19,7 @@ class CardDeck(private val cardList: MutableList<PlayingCard>) {
     }
 
     private fun resetCard() {
+
         cardList.shuffle()
         index = 0
     }

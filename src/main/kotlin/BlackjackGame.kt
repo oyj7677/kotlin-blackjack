@@ -35,7 +35,7 @@ class BlackjackGame(
     private fun handleForResponse(response: String, player: Player) {
         when (response.uppercase()) {
             TEXT_ANSWER_YES -> {
-                player.saveCard(cardDeck.getCardWithIncrease())
+                player.hit(cardDeck.getCardWithIncrease())
             }
             TEXT_ANSWER_NO -> {
                 player.playDone()
@@ -48,7 +48,7 @@ class BlackjackGame(
 
     private fun settingCard(player: Player) {
         repeat(2) {
-            player.saveCard(cardDeck.getCardWithIncrease())
+            player.hit(cardDeck.getCardWithIncrease())
         }
     }
 
