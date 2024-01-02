@@ -33,12 +33,6 @@ class Hands(val cardList: MutableList<PlayingCard> = mutableListOf()) {
         }
     }
 
-    companion object {
-        fun create() = Hands(mutableListOf())
-        private const val ADD_ACE_POINT = 10
-        private const val ADD_ACE_POINT_NONE = 0
-    }
-
     override fun toString(): String {
         val sb = StringBuilder()
         for (card in cardList) {
@@ -46,5 +40,11 @@ class Hands(val cardList: MutableList<PlayingCard> = mutableListOf()) {
         }
         sb.deleteCharAt(sb.lastIndex - 1)
         return sb.toString()
+    }
+
+    companion object {
+        fun create() = Hands(mutableListOf())
+        private const val ADD_ACE_POINT = 10
+        private const val ADD_ACE_POINT_NONE = 0
     }
 }

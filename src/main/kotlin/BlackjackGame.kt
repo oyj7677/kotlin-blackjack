@@ -40,6 +40,7 @@ class BlackjackGame(
             TEXT_ANSWER_NO -> {
                 player.playDone()
             }
+
             else -> {
                 println(TEXT_RETRY_INPUT)
             }

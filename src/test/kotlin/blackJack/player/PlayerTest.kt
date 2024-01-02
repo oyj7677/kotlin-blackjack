@@ -10,7 +10,6 @@ import player.Player
 import player.Status
 
 class PlayerTest {
-
     @Test
     fun `플레이어와 카드팩이 생성되고, 플레이어가 카드를 받을 때, 받은 카드는 저장한다`() {
         // given : 플레이어와 카드팩을 생성한다.

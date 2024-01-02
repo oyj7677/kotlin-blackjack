@@ -3,7 +3,7 @@ package blackJack.participant
 import card.CardRank
 import card.PlayingCard
 import card.Suit
-import org.assertj.core.api.Assertions.*
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import player.Dealer
 import player.Player

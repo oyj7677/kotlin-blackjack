@@ -109,6 +109,4 @@ class ParticipantTest {
         // then : 참여자 상태는 PLAYING이다.
         assertThat(actual).isEqualTo(Status.STAND)
     }
-
-
 }

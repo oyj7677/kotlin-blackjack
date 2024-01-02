@@ -18,7 +18,9 @@ object OutputView : OutputViewInterface {
     }
 
     override fun showPlayingCard(player: Player) {
-        println("${player.name}카드: ${player.playerDeck}")
+        val name = player.name
+        val hands = player.hands
+        println("${player.name}카드: ${player.hands}")
     }
 
     fun showGameEnd(playerGroup: PlayerGroup) {
@@ -28,6 +30,6 @@ object OutputView : OutputViewInterface {
 
     private fun showPlayerCardWithPoint(player: Player) {
         val totalPoint = player.getResultPoint()
-        println("${player.name}카드: ${player.playerDeck} - 결과: $totalPoint")
+        println("${player.name}카드: ${player.hands} - 결과: $totalPoint")
     }
 }

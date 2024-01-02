@@ -6,7 +6,6 @@ import view.InputView
 import view.OutputView
 
 fun main() {
-
     val playerNames = InputView.inputPlayerName()
     val playerGroup = PlayerGroup(PlayerFactory.createPlayerList(playerNames))
     val cardDeck = CardDeck(CardPack.cards.toMutableList())
